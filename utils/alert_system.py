@@ -7,7 +7,7 @@ class AlertSystem:
 
     def update(self, issue, sentiment):
 
-        if "1" in sentiment or "2" in sentiment:
+        if sentiment == "Negative":
             self.buffer.append(issue)
 
         if len(self.buffer) > 20:
@@ -20,7 +20,7 @@ class AlertSystem:
 
         issue, freq = Counter(self.buffer).most_common(1)[0]
 
-        if freq >= 5:
-            return f"🚨 High complaints about {issue}"
+        if freq >= 4:
+            return f"🚨 Rising complaints about {issue}"
 
         return None

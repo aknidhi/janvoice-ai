@@ -1,18 +1,17 @@
 def classify_issue(text):
 
-    text = text.lower()
+    t = text.lower()
 
-    if "traffic" in text or "jam" in text:
+    if any(k in t for k in ["traffic","jam","congestion"]):
         return "Traffic"
 
-    elif "water" in text or "pani" in text:
+    if any(k in t for k in ["water","pani","supply"]):
         return "Water"
 
-    elif "electricity" in text or "light" in text:
+    if any(k in t for k in ["electricity","power","light"]):
         return "Electricity"
 
-    elif "road" in text:
+    if any(k in t for k in ["road","pothole","street"]):
         return "Road"
 
-    else:
-        return "General"
+    return "General"

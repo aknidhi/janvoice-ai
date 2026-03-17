@@ -9,17 +9,14 @@ class RiskMeter:
 
         total = len(data)
 
-        negative = [
-            d for d in data
-            if "1" in d['sentiment'] or "2" in d['sentiment']
-        ]
+        negatives = [d for d in data if d["sentiment"]=="Negative"]
 
-        neg_score = (len(negative)/total) * 60
+        neg_score = (len(negatives)/total)*60
 
-        if negative:
-            freq = Counter([d['issue'] for d in negative]).most_common(1)[0][1]
-            issue_score = (freq/total) * 40
+        if negatives:
+            freq = Counter([d["issue"] for d in negatives]).most_common(1)[0][1]
+            issue_score = (freq/total)*40
         else:
             issue_score = 0
 
-        return min(int(neg_score + issue_score), 100)
+        return min(int(neg_score + issue_score),100)

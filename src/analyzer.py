@@ -6,8 +6,11 @@ from models.issue_classifier import classify_issue
 def analyze_text(text):
 
     lang = detect_language(text)
+
     translated = translate_text(text)
+
     sentiment = get_sentiment(translated)
+
     issue = classify_issue(translated)
 
     return {

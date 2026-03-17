@@ -3,6 +3,9 @@ import pandas as pd
 import time
 import plotly.graph_objects as go
 
+import sys
+import os
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 from src.analyzer import analyze_text
 from utils.alert_system import AlertSystem
 from utils.risk_meter import RiskMeter

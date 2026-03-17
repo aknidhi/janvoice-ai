@@ -4,5 +4,5 @@ numpy
 scikit-learn
 textblob
 langdetect
-googletrans==4.0.0rc1
+deep-translator
 plotly

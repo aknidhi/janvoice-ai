@@ -59,7 +59,7 @@ for i,row in df.iterrows():
         gauge={'axis':{'range':[0,100]}}
     ))
 
-    risk_area.plotly_chart(gauge, key="risk_gauge_1")
+    risk_area.plotly_chart(gauge, key=f"risk_gauge_{i}")
 
     map_area.map(temp[["lat","lon"]])
 
